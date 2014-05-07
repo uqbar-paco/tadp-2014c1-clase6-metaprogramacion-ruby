@@ -66,7 +66,6 @@ describe 'Lista Filtrada' do
   it 'no agrega elementos que no complen con su predicado' do
     @lista << 9 << 4 << 33 << 2
     @lista.should == [9, 33]
-
   end
 
 end

@@ -11,23 +11,21 @@ describe 'Dynamic Matcher' do
   before :each do
     @home = UsuariosHome.new
 
-    maria = Usuario.new("Maria", 20, true)
-    jose = Usuario.new("Jose", 55, true)
-    josefa = Usuario.new("Josefa", 55, true)
+    @maria = Usuario.new("Maria", 20, true)
+    @jose = Usuario.new("Jose", 55, true)
+    @josefa = Usuario.new("Josefa", 55, true)
 
+    @home.add(@maria)
+    @home.add(@jose)
+    @home.add(@josefa)
+
+    # Ejemplo, usar instance_eval como "with" para no repetir el receptor y hacerlo default
     @home.instance_eval {
-      add (Usuario.new("Juan", 33, true))
-      add (Usuario.new("Pedro", 10, false))
-      add (maria)
-      add (Usuario.new("Paula", 30, false))
-      add (jose)
-      add (josefa)
-      add (Usuario.new("Antonio", 55, false))
+      add(Usuario.new("Juan", 33, true))
+      add(Usuario.new("Pedro", 10, false))
+      add(Usuario.new("Paula", 30, false))
+      add(Usuario.new("Antonio", 55, false))
     }
-
-    @maria = maria
-    @jose = jose
-    @josefa = josefa
   end
 
   it 'puede buscar las entidades que matchean con una property' do
