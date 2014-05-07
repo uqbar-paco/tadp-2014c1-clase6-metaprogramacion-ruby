@@ -10,10 +10,6 @@ class Decorator
     decorado.send(nombre, *args, &block)
   end
 
-  def respond_to?(nombre, include_all=false)
-    super || @decorado.respond_to?(nombre, include_all)
-  end
-
   def respond_to_missing?(nombre, include_all)
     super || @decorado.respond_to?(nombre, include_all)
   end
