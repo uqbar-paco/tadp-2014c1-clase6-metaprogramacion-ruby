@@ -1,4 +1,4 @@
-class Decorator
+module Decorator
 
   attr_accessor :decorado
 
